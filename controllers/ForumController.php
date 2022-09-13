@@ -14,14 +14,14 @@ function forum_controller_publier($request) {
     $data = forum_model_list();
     $errors = forum_verification_publication($request);
     $data = $data + $errors;
-    if(!$data['isValid']){
-        render(VIEW_DIR.'/forum/accueil.php', $data);
-    } else {
+    if(isset($data['titre']) && $data['isValid']){
         $request['id'] = $_SESSION['userId'];
         $request['datePublication'] = date("Y-m-d");
         //print_r($request);
         forum_model_publication($request);
         header("Location: ?module=forum&action=accueil");
+    } else {
+        render(VIEW_DIR.'/forum/accueil.php', $data);
     }
 }
 

@@ -9,7 +9,7 @@ function user_controller_insert($request){
     $data = user_verification_create($request);
     $data = array_merge($data, $request);
 
-    if($data['isValid']){
+    if($data['isValid'] && isset($request['username']) && isset($request['password']) && isset($request['nom'])){
         user_model_insert($request);
         header("Location: ?module=forum&action=accueil");
     } else {
@@ -21,7 +21,9 @@ function user_controller_insert($request){
 /** Connection et Déconnection de l'utilisateur */
 function user_controller_connect($request) {
     require(MODEL_DIR.'/user.php');
-    $user = user_model_verification($request);
+    if(isset($request['username'])){
+        $user = user_model_verification($request);
+    }
     if(isset($user)) {
         $_SESSION['user'] = $user['nom'];
         $_SESSION['userId'] = $user['id'];
