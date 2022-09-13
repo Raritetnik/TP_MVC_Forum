@@ -46,6 +46,13 @@ function user_controller_logout() {
 
 function user_verification_create($information) {
     $erreur['isValid'] = true;
+    /* Verifier si l'utilisateur existe déjà */
+    $user = user_model_verification($information);
+    if(isset($user)){
+        $erreur['isValid'] = false;
+        $erreur['e_username'] = 'Utilisateur existe déjà dans le système';
+    }
+
     foreach($information as $key=>$value){
         $$key = $value;
         if($key == 'nom'){
