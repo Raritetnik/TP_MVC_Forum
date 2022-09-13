@@ -1,0 +1,111 @@
+h1 {
+    text-align: center;
+}
+h4, h3, h2 {
+    margin-bottom: 0;
+}
+
+.contenu {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    padding: 20px;
+}
+.bloc_texte {
+    flex-grow: 1;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+input[type='submit'] {
+    background-color: orange;
+    padding: 0 10px;
+    border: 2px solid orange;
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+input[type='submit']:hover {
+    background-color: darkorange;
+}
+
+input[name='titre'] {
+    width: 80%;
+}
+
+.bloc_information {
+    flex-grow: 1;
+}
+.bloc_texte+.bloc_information {
+    max-width: 300px;
+}
+
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    background: darkorange;
+}
+
+.navigation>div {
+    display: flex;
+    flex-direction: row;
+}
+
+.navigation a {
+text-decoration: none;
+display: block;
+padding: 1em;
+color: white;
+}
+
+.navigation a:hover {
+background: #252525;
+}
+
+textarea {
+width: 100%;
+height: 100px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border-bottom: 3px solid tomato;
+}
+
+.liste_comments>* {
+    padding: 20px;
+}
+
+.comment_autor {
+    padding-bottom: 10px;
+}
+
+.profil-icon {
+    max-width: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    background-color: white;
+}
+.comment_texte>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.comment_texte a {
+    color: orange;
+    padding-left: 5px;
+}
+
+.comment_texte a:hover {
+    color: darkorange;
+}
+
+.comment__content {
+    width: 100%;
+}

@@ -1,0 +1,23 @@
+@import "accueil.css";
+@import "formulaire.css";
+
+
+body{
+  margin:auto;
+  background: rgba(0, 0, 0, 0.8);
+  font-family:sans-serif;
+  color: white;
+}
+
+.container {
+  margin: 50px;
+}
+
+.error {
+  color: tomato;
+}
+
+span {
+  margin: 0;
+  padding: 0;
+}
