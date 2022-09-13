@@ -8,6 +8,9 @@ function forum_controller_accueil(){
 
 function forum_controller_publier($request) {
     require(MODEL_DIR.'/forum.php');
+    if(!isset($_SESSION['user'])){
+        header("Location: ?module=forum&action=accueil");
+    }
     $data = forum_model_list();
     $errors = forum_verification_publication($request);
     $data = $data + $errors;
@@ -24,19 +27,27 @@ function forum_controller_publier($request) {
 
 function forum_controller_edit($request) {
     require(MODEL_DIR.'/forum.php');
+    if(!isset($_SESSION['user'])){
+        header("Location: ?module=forum&action=accueil");
+    }
     $data = forum_model_find($request['id']);
     render(VIEW_DIR.'/forum/edit.php', $data);
 }
 
 function forum_controller_delete($request) {
     require(MODEL_DIR.'/forum.php');
+    if(!isset($_SESSION['user'])){
+        header("Location: ?module=forum&action=accueil");
+    }
     forum_model_delete($request);
     header("Location: ?module=forum&action=accueil");
 }
 
 function forum_controller_modify($request) {
     require(MODEL_DIR.'/forum.php');
-
+    if(!isset($_SESSION['user'])){
+        header("Location: ?module=forum&action=accueil");
+    }
     $data = forum_model_find($request['id']);
     $errors = forum_verification_publication($request);
     $data = array_merge($data, $errors);
