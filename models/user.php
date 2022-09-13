@@ -20,7 +20,7 @@ function user_model_verification($request) {
     $result = mysqli_query($con, $sql);
     $result = mysqli_fetch_assoc($result);
     mysqli_close($con);
-    if(password_verify($password, $result['password'])){
+    if(isset($result['password']) && password_verify($password, $result['password'])){
         return $result;
     } else {
         return null;
